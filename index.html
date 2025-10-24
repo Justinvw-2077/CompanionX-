@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CompanionX</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div class="sky-gradient"></div>
+
+    <header class="app-header">
+      <h1>CompanionX</h1>
+      <div class="session-controls">
+        <span class="session-role" id="sessionRole">Guest</span>
+        <button id="logoutBtn" class="ghost-btn" type="button">Log out</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="avatar-panel">
+        <div class="avatar-wrap">
+          <div class="avatar-glow"></div>
+          <img
+            src="assets/avatar.svg"
+            alt="A friendly anime-style cat lady companion"
+            class="avatar-image"
+            id="avatarImage"
+          />
+          <div class="avatar-shadow"></div>
+        </div>
+        <div class="emotion-tray" aria-live="polite">
+          <button type="button" class="emotion-btn" data-emotion="happy">😺 Happy</button>
+          <button type="button" class="emotion-btn" data-emotion="curious">🙀 Curious</button>
+          <button type="button" class="emotion-btn" data-emotion="calm">😼 Calm</button>
+        </div>
+      </section>
+
+      <section class="chat-panel">
+        <div class="chat-window" id="chatWindow" aria-live="polite"></div>
+        <form class="chat-input" id="chatForm">
+          <input
+            type="text"
+            id="chatMessage"
+            name="message"
+            placeholder="Ask your companion anything..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="primary-btn">Send</button>
+        </form>
+      </section>
+
+      <aside class="creator-panel" id="creatorPanel" aria-hidden="true">
+        <h2>Creator Console</h2>
+        <p>
+          Welcome back! Adjust how your companion greets guests and experiment
+          with premium animations.
+        </p>
+        <label class="field">
+          <span>Greeting headline</span>
+          <input type="text" id="headlineInput" value="Hi there, I'm Aiko!" />
+        </label>
+        <label class="field">
+          <span>Gentle sway intensity</span>
+          <input
+            type="range"
+            id="swayIntensity"
+            min="0"
+            max="12"
+            value="6"
+          />
+        </label>
+        <button id="applySettings" class="primary-btn">Apply updates</button>
+      </aside>
+    </main>
+
+    <div class="login-overlay" id="loginOverlay" role="dialog" aria-modal="true">
+      <div class="login-card">
+        <div class="login-hero">
+          <h2 id="loginHeadline">Hi there, I'm Aiko!</h2>
+          <p>Your cozy feline companion is ready to brighten your evening.</p>
+        </div>
+        <form class="login-form" id="loginForm">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" id="email" autocomplete="username" required />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input
+              type="password"
+              id="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+          <button type="submit" class="primary-btn">Creator login</button>
+          <p class="form-hint">Use your creator credentials to unlock the console.</p>
+        </form>
+        <div class="overlay-actions">
+          <button id="guestBtn" class="ghost-btn" type="button">
+            Continue as guest
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <template id="messageTemplate">
+      <div class="chat-bubble">
+        <div class="bubble-metadata">
+          <span class="bubble-author"></span>
+          <time class="bubble-time"></time>
+        </div>
+        <p class="bubble-text"></p>
+      </div>
+    </template>
+
+    <script src="scripts/app.js" type="module"></script>
+  </body>
+</html>
