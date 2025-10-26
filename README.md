@@ -1,2 +1,1 @@
-# CompanionX-
-AI helper
+
